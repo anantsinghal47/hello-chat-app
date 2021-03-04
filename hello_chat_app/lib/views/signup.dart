@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hello_chat_app/helper/helperFunctions.dart';
 import 'package:hello_chat_app/services/auth.dart';
 import 'package:hello_chat_app/services/database.dart';
-import 'package:hello_chat_app/views/chatRooms.dart';
 import 'package:hello_chat_app/views/signin.dart';
 import 'package:hello_chat_app/widgets/widget.dart';
 

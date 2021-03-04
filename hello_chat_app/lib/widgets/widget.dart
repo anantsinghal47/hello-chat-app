@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 Widget appBarMain(BuildContext context){
   return AppBar(
+
     title: Image.asset("assets/images/applogo.png" ,
       height: 50 ,
      ),

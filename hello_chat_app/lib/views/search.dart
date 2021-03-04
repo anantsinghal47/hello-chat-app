@@ -1,4 +1,5 @@
 
+
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,7 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
         shrinkWrap: true,
         itemCount: searchSnapshots.docs.length,
         itemBuilder: (context , index){
-          return SearchTile(
+          return searchTile(
             userName:searchSnapshots.docs[index].data()["name"] ,
             userEmail: searchSnapshots.docs[index].data()["email"],
           );
@@ -32,6 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
 
   initiateSearch(){
+
     databaseMethods.getUserByUsername(searchUsername.text).then((val){
       print(val);
       setState(() {
@@ -52,11 +54,17 @@ class _SearchScreenState extends State<SearchScreen> {
     };
     DatabaseMethods().createChatRoom(chatroomId,chatRoomMap);
     Navigator.push(context, MaterialPageRoute(
-        builder: (context) => Conversation()
+        builder: (context) => Conversation(chatroomId,chatroomId)
     ));
 
   }
-  Widget SearchTile({String userName,
+  Widget noSearch(){
+    return Card(
+      elevation: 10,
+      child: Text("hello"),
+    );
+  }
+  Widget searchTile({String userName,
    String userEmail}){
     return Card(
       elevation: 2,
@@ -84,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 8),
-                child: Text("Message" , style: TextStyle(color: Colors.white),),
+                child:   Text("Message" , style: TextStyle(color: Colors.white),) ,
               ),
             ),
 
@@ -133,7 +141,9 @@ class _SearchScreenState extends State<SearchScreen> {
                       )),
                     GestureDetector(
                       onTap: (){
-                        initiateSearch();
+                        if(searchUsername.text != Constants.myName) {
+                          initiateSearch();
+                        }
                       },
                     child: Container(
                       height: 40,
