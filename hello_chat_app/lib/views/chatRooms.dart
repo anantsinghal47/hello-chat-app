@@ -25,7 +25,7 @@ class _ChatRoomState extends State<ChatRoom> {
     // TODO: implement initState
     super.initState();
   }
-  getUserInfo() async{
+  getUserInfo() async {
     Constants.myName = await HelperFunctions.getUserNameSharedPreference();
   }
 

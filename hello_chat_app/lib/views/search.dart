@@ -102,6 +102,7 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

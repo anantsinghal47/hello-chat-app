@@ -37,7 +37,8 @@ class _SignInState extends State<SignIn>{
 
       databaseMethods.getUserByEmail(email.text).then((val){
         snapshotUserInfo=val;
-        HelperFunctions.saveUserEmailPreference(snapshotUserInfo.docs[0].data()["name"]);
+        HelperFunctions.saveUsernamePreference(snapshotUserInfo.docs[0].data()["name"]);
+        print("${snapshotUserInfo.docs[0].data()["name"]}");
         }
       );
       authMethods.signInWithEmailAndPassword(email.text, password.text).then((val){
