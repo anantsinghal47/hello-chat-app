@@ -47,6 +47,12 @@ class _ConversationState extends State<Conversation> {
       databaseMethods.addConversationMessages(widget.chatRoomId, messageMap);
     }
   }
+  void clearText() {
+    setState(() {
+      message.clear();
+    });
+
+  }
   @override
   void initState() {
     databaseMethods.getConversationMessages(widget.chatRoomId).then((value){
@@ -113,6 +119,10 @@ class _ConversationState extends State<Conversation> {
                             //border: Border.all(color: Colors.blueGrey ),
                           ),
                           child: TextField(
+                            onSubmitted: (_) {
+                              sendMessages();
+                              clearText();
+                            },
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black ,
@@ -136,6 +146,7 @@ class _ConversationState extends State<Conversation> {
                     GestureDetector(
                       onTap: (){
                         sendMessages();
+                        clearText();
                       },
                       child: Container(
                           height: 40,
