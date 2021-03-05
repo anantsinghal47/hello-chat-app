@@ -48,11 +48,12 @@ class _SignUpState extends State<SignUp>{
      // uploading userInfo simultaneously
       databaseMethods.uploadUserInfo(userInfoMap);
     // this replaces the screen in which we are to route
+
       Navigator.pushReplacement(context, MaterialPageRoute(
         // which screen we want to go
         builder: (context) => SignIn(widget.toggle)
       ));
-      print("You are in chatRoom");
+      print("please sign in to continue");
     
     }
   }

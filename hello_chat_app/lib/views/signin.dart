@@ -73,12 +73,11 @@ class _SignInState extends State<SignIn>{
          actions: [
            Container(
              padding:EdgeInsets.symmetric(horizontal: 20) ,
-               child: GestureDetector(
-                 onTap: (){
+               child: IconButton(
+                 icon: Icon( Icons.search ),
+                onPressed: (){},
+               ),
 
-                 },
-                   child: Icon(Icons.help)
-               )
            )
          ],
       ), // creating appbar function which in return gives us a widget
@@ -130,44 +129,54 @@ class _SignInState extends State<SignIn>{
                     )
                 ),
                 SizedBox(height: 10),
-                Container(
+                GestureDetector(
+                  onTap: (){
+                    signMeIn();
+                  },
+                  child: Container(
 
-                 // height: 65,
-                  width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.symmetric(vertical: 0),
-                  decoration: BoxDecoration(
-                     // color:Colors.lightBlueAccent,
-                      borderRadius: BorderRadius.circular(50),
-                      gradient: LinearGradient(
-                          colors: [
-                          const Color(0xff007EF4),
-                          const Color(0xff145C9E)
+                   // height: 65,
+                    width: MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.symmetric(vertical: 0),
+                    decoration: BoxDecoration(
+                       // color:Colors.lightBlueAccent,
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: LinearGradient(
+                            colors: [
+                            const Color(0xff007EF4),
+                            const Color(0xff145C9E)
 
-                           ]),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 1.0,
-                        spreadRadius: 0.0,
-                        offset: Offset(0.0, 2.8), // shadow direction: bottom right
-                      )
-                    ],
-                          ),
-                    alignment: Alignment.center,
-                    child: TextButton(
-                      onPressed: () async {},
+                             ]),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 1.0,
+                          spreadRadius: 0.0,
+                          offset: Offset(0.0, 2.8), // shadow direction: bottom right
+                        )
+                      ],
+                            ),
+                      alignment: Alignment.center,
                       child: GestureDetector(
-
                         onTap: (){
-                          //widget.toggle();
                           signMeIn();
                         },
-                        child: Text("Sign In" ,
-                              style: mediumTextstyle(),
-                            ),
+                        child: TextButton(
+                          onPressed: () async {},
+                          child: GestureDetector(
+
+                            onTap: (){
+                              //widget.toggle();
+                              signMeIn();
+                            },
+                            child: Text("Sign In" ,
+                                  style: mediumTextstyle(),
+                                ),
+                          ),
+                        ),
                       ),
-                    ),
-                      ),
+                        ),
+                ),
                       SizedBox(height: 10, ),
                 //SignUpWithGoogle Button
                 Container(
@@ -206,6 +215,7 @@ class _SignInState extends State<SignIn>{
                       GestureDetector(
                         onTap: () {
                           widget.toggle();// switching the signIn screen to SignUp screen
+
                         },
                         child: Text("Register now" , style:TextStyle(
                         color: Colors.indigo,
