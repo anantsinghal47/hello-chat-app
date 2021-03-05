@@ -1,2 +1,4 @@
 # hello-chat-app
-Hello chat app is a flutter based  messaging application , through which you can connect to your family and friends
+Hello chat app is a flutter based  messaging application , through which you can connect to your family and friends.
+check out releases for hands on :) 
+ 
