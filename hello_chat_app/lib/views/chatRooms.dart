@@ -13,7 +13,6 @@ import 'package:hello_chat_app/services/auth.dart';
 import 'package:hello_chat_app/services/database.dart';
 import 'package:hello_chat_app/views/conversations.dart';
 import 'package:hello_chat_app/views/search.dart';
-import 'package:hello_chat_app/widgets/widget.dart';
 
 
 class ChatRoom extends StatefulWidget {
